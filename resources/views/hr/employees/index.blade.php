@@ -17,7 +17,7 @@
         @foreach ($employees as $employee)
         <tr>
             <td>
-                <a href="{{ route('employees.show', $employee->id) }}">{{ $employee->name }}</a>
+                <a href="{{ route('employees.documents', $employee) }}">{{ $employee->name }}</a>
             </td>
             <td>
                 @if ($employee->designation)

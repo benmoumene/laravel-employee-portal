@@ -92,6 +92,7 @@ Route::middleware('auth')->group(function () {
         Route::get('employee/{employee}/projects/', 'Employees\EmployeeController@showProjects')->name('employees.projects');
 
         Route::get('employee-reports', 'Employees\ReportsController@index')->name('employees.reports');
+        Route::get('employees/{employee}/documents', 'Employees\EmployeeController@documents')->name('employees.documents');
 
 
         Route::resource('applicants', 'ApplicantController')->only(['index', 'edit']);

@@ -4,3 +4,29 @@
 .font-size-100 {
 	font-size: 100%;
 }
+@each $name, $color in $theme-colors {
+	.hover-text-#{$name},
+	button.hover-text-#{$name},
+	a.hover-text-#{$name} {
+		&:hover,
+		&:focus {
+			color: $color !important;
+		}
+	}
+
+	.hover-bg-#{$name},
+	button.hover-bg-#{$name},
+	a.hover-bg-#{$name} {
+		&:hover,
+		&:focus {
+			background-color: $color !important;
+		}
+	}
+
+	.hover-border-#{$name} {
+		&:hover,
+		&:focus {
+			border-color: $color !important;
+		}
+	}
+}
