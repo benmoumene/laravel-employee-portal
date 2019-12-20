@@ -1,5 +1,5 @@
 <div class="mb-5">
-    <a href="{{ route('employees.timeline-event', $employee) }}" class="bg-primary rounded d-block text-decoration-none text-white p-2 p-lg-3 mb-2 mb-lg-3">
+    <a href="{{ route('employees.timeline', $employee) }}" class="bg-primary rounded d-block text-decoration-none text-white p-2 p-lg-3 mb-2 mb-lg-3">
         <i class="fa fa-file"></i>&nbsp;&nbsp;<span>Timeline</span>
     </a>
     <a href="#" class="bg-white rounded d-block text-decoration-none text-muted hover-text-dark p-2 p-lg-3 mb-2 mb-lg-3">

@@ -92,9 +92,10 @@ Route::middleware('auth')->group(function () {
         Route::get('employee/{employee}/projects/', 'Employees\EmployeeController@showProjects')->name('employees.projects');
 
         Route::get('employee-reports', 'Employees\ReportsController@index')->name('employees.reports');
-        Route::resource('employees/{employee}/timeline', 'Employees\EmployeeTimelineEventController')->only(['index', 'store'])->names([
-            'index' => 'employees.timeline-event',
+        Route::get('employees/{employee}/timeline', 'Employees\EmployeeTimelineEventController@index')->name('employees.timeline');
+        Route::resource('employees/{employee}/timeline-event', 'Employees\EmployeeTimelineEventController')->only(['store', 'destroy'])->names([
             'store' => 'employees.timeline-event.store',
+            'destroy' => 'employees.timeline-event.destroy',
         ]);
 
         Route::resource('applicants', 'ApplicantController')->only(['index', 'edit']);

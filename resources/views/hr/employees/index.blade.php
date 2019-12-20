@@ -17,7 +17,7 @@
         @foreach ($employees as $employee)
         <tr>
             <td>
-                <a href="{{ route('employees.timeline-event', $employee) }}">{{ $employee->name }}</a>
+                <a href="{{ route('employees.timeline', $employee) }}">{{ $employee->name }}</a>
             </td>
             <td>
                 @if ($employee->designation)

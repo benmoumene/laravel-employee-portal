@@ -41,7 +41,25 @@
                                         <div class="col-md-12">
                                             <div class="card mb-3 shadow-sm border-0 rounded-0">
                                                 <div class="card-body">
-                                                    <h4>{{ $timelineEvent->name }}</h4>
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <h4>{{ $timelineEvent->name }}</h4>
+                                                        <div>
+                                                            
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <span class="c-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></span>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <span class="c-pointer dropdown-item text-danger hover-bg-danger hover-text-white" onclick="document.getElementById('{{ "deleteTimelineEvent-$timelineEvent->id" }}').click()">Delete</span>
+                                                                <form method="post" action="{{ route('employees.timeline-event.destroy', [$employee, $timelineEvent]) }}" class="d-none" onsubmit="return confirm('Are you sure you want to take this action?');">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <input type="submit" class="d-none" id="{{ "deleteTimelineEvent-$timelineEvent->id" }}">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <p class="text-secondary">{{ $timelineEvent->description }}</p>
                                                 </div>
                                             </div>

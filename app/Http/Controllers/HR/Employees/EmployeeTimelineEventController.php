@@ -31,6 +31,12 @@ class EmployeeTimelineEventController extends Controller
             'name' => $validated['name'],
             'description' => $validated['description'],
         ]);
-        return redirect(route('employees.timeline-event', $employee))->with('status', 'Event added successfully!');
+        return redirect()->back()->with('status', 'Event added successfully!');
+    }
+
+    public function destroy(Employee $employee, EmployeeTimelineEvent $timelineEvent)
+    {
+        $timelineEvent->delete();
+        return redirect()->back()->with('status', 'Event deleted successfully!');
     }
 }
