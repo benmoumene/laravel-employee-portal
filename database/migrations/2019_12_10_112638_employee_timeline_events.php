@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class EmployeeDocuments extends Migration
+class EmployeeTimelineEvents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class EmployeeDocuments extends Migration
      */
     public function up()
     {
-        Schema::create('employee_documents', function (Blueprint $table) {
+        Schema::create('employee_timeline_events', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('employee_id');
             $table->string('name');
-            $table->timestamp('effective_date')->nullable();
-            $table->text('url');
+            $table->text('description');
+            $table->timestamp('occurred_at');
+            $table->text('document_url')->nullable();
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees');
@@ -32,6 +33,6 @@ class EmployeeDocuments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_documents');
+        Schema::dropIfExists('employee_timeline_events');
     }
 }

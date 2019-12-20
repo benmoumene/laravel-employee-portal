@@ -2,10 +2,11 @@
 
 namespace App\Models\HR;
 
-use App\Models\Project;
 use App\User;
 use Carbon\Carbon;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\HR\EmployeeTimelineEvent;
 
 class Employee extends Model
 {
@@ -34,10 +35,15 @@ class Employee extends Model
     }
 
     /**
-    * Get the projects for the employees.
-    */
+     * Get the projects for the employees.
+     */
     public function projects()
     {
         return $this->belongsToMany(Project::class)->withPivot('contribution_type');
+    }
+
+    public function timelineEvents()
+    {
+        return $this->hasMany(EmployeeTimelineEvent::class);
     }
 }

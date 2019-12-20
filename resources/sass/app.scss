@@ -338,6 +338,10 @@ input:focus+.slider {
     height: 30px !important;
 }
 
+.flex-center {
+    @extend .d-flex, .align-items-center, .justify-content-center;
+}
+
 #books_listing {
     .reader_image {
         width: 30px !important;
